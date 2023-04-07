@@ -1,0 +1,25 @@
+version: "3"
+services:
+  api:
+    image: cryptoapi-api
+    build: .
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+  db:
+    image: mysql:8.0
+    cap_add:
+      - SYS_NICE
+    restart: always
+    environment:
+      - MYSQL_DATABASE=cryptoapi
+      - MYSQL_ROOT_PASSWORD=0n383nak394nax*
+    ports:
+      - '3306:3306'
+    volumes:
+      - db:/var/lib/mysql
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+volumes:
+  db:
+    driver: local

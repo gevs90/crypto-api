@@ -1,0 +1,4 @@
+{
+   "connection_string": "root:0n383nak394nax*@tcp(cryptoapi-db-1:3306)/cryptoapi?charset=utf8mb4&parseTime=True&loc=Local",
+   "port": ":8080"
+}
